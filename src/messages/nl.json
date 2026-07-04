@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "ElevenLabs API-diagnostiek",
+    "tagline": "Diagnosticeer, analyseer en verhelp fouten in de ElevenLabs API"
+  },
+  "languageSwitcher": {
+    "label": "Taal",
+    "pickerTitle": "Kies een taal"
+  },
+  "input": {
+    "heading": "Wat gaat er mis?",
+    "subheading": "Plak een foutlog, beschrijf het probleem, of upload een screenshot.",
+    "textLabel": "Foutlogs of beschrijving",
+    "textPlaceholder": "Plak een foutmelding, een logregel, of beschrijf wat de klant ervaart...",
+    "imageLabel": "Screenshots",
+    "imageHint": "Tik om te uploaden, of sleep en zet neer. Maximaal 3 afbeeldingen.",
+    "imageRemove": "Afbeelding verwijderen",
+    "submit": "Diagnosticeren",
+    "submitting": "Bezig met diagnosticeren...",
+    "validationEmpty": "Voeg tekst of minstens één screenshot toe voordat je diagnosticeert.",
+    "errorTooLarge": "Die upload is te groot. Probeer minder of kleinere afbeeldingen.",
+    "errorTooManyImages": "Je kunt maximaal 3 afbeeldingen tegelijk uploaden.",
+    "errorGeneric": "Er is iets misgegaan bij het diagnosticeren. Probeer het opnieuw."
+  },
+  "result": {
+    "loadingText": "Fout wordt geanalyseerd...",
+    "diagnosisHeading": "Diagnose",
+    "remediationHeading": "Oplossingsstappen",
+    "relatedDocsHeading": "Gerelateerde documentatie",
+    "matchedEntry": "Overeenkomst met bekend probleem: {id}",
+    "confidenceLabel": "Zekerheid",
+    "severity": {
+      "low": "Laag",
+      "medium": "Gemiddeld",
+      "high": "Hoog",
+      "critical": "Kritiek"
+    },
+    "copyButton": "Kopiëren naar klembord",
+    "copiedConfirmation": "Gekopieerd",
+    "retryButton": "Nieuwe diagnose starten"
+  }
+}

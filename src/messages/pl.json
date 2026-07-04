@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Diagnostyka API ElevenLabs",
+    "tagline": "Diagnozuj, analizuj i usuwaj błędy API ElevenLabs"
+  },
+  "languageSwitcher": {
+    "label": "Język",
+    "pickerTitle": "Wybierz język"
+  },
+  "input": {
+    "heading": "Co się dzieje?",
+    "subheading": "Wklej log błędu, opisz problem lub prześlij zrzut ekranu.",
+    "textLabel": "Logi błędów lub opis",
+    "textPlaceholder": "Wklej komunikat błędu, linię logu lub opisz, czego doświadcza klient...",
+    "imageLabel": "Zrzuty ekranu",
+    "imageHint": "Dotknij, aby przesłać, lub przeciągnij i upuść. Maksymalnie 3 obrazy.",
+    "imageRemove": "Usuń obraz",
+    "submit": "Diagnozuj",
+    "submitting": "Diagnozowanie...",
+    "validationEmpty": "Dodaj tekst lub co najmniej jeden zrzut ekranu przed rozpoczęciem diagnozy.",
+    "errorTooLarge": "Przesyłane pliki są zbyt duże. Spróbuj mniejszej liczby lub mniejszych obrazów.",
+    "errorTooManyImages": "Możesz przesłać maksymalnie 3 obrazy naraz.",
+    "errorGeneric": "Coś poszło nie tak podczas diagnozowania. Spróbuj ponownie."
+  },
+  "result": {
+    "loadingText": "Analizowanie błędu...",
+    "diagnosisHeading": "Diagnoza",
+    "remediationHeading": "Kroki naprawcze",
+    "relatedDocsHeading": "Powiązana dokumentacja",
+    "matchedEntry": "Dopasowano do znanego problemu: {id}",
+    "confidenceLabel": "Pewność",
+    "severity": {
+      "low": "Niski",
+      "medium": "Średni",
+      "high": "Wysoki",
+      "critical": "Krytyczny"
+    },
+    "copyButton": "Kopiuj do schowka",
+    "copiedConfirmation": "Skopiowano",
+    "retryButton": "Rozpocznij nową diagnozę"
+  }
+}
