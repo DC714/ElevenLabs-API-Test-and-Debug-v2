@@ -1,5 +1,19 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+It's a mobile-first tool that helps ElevenLabs forward-deployed engineers diagnose API errors from pasted logs, free-text descriptions, or screenshots, across 7 locales.
+
+## Environment variables
+
+Create `.env.local` (gitignored) with:
+
+```bash
+ELEVENLABS_DIAGNOSTIC_ANTHROPIC_API_KEY=sk-ant-...
+```
+
+This is the server-side Anthropic API key used by `src/app/api/diagnose/route.ts` to run diagnoses. It is intentionally named differently from the `ANTHROPIC_API_KEY` GitHub Actions secret used by `.github/workflows/claude.yml`, so the two can be rotated independently without confusion.
+
+When deploying, add the same variable in the Vercel project's Settings → Environment Variables, scoped to Production, Preview, and Development.
+
 ## Getting Started
 
 First, run the development server:

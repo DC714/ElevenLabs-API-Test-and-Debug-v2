@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Diagnóstico de la API de ElevenLabs",
+    "tagline": "Diagnostica, analiza y soluciona errores de la API de ElevenLabs"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "pickerTitle": "Elige un idioma"
+  },
+  "input": {
+    "heading": "¿Qué está fallando?",
+    "subheading": "Pega un registro de errores, describe el problema o sube una captura de pantalla.",
+    "textLabel": "Registros de errores o descripción",
+    "textPlaceholder": "Pega un mensaje de error, una línea de registro o describe lo que está experimentando el cliente...",
+    "imageLabel": "Capturas de pantalla",
+    "imageHint": "Toca para subir, o arrastra y suelta. Hasta 3 imágenes.",
+    "imageRemove": "Quitar imagen",
+    "submit": "Diagnosticar",
+    "submitting": "Diagnosticando...",
+    "validationEmpty": "Añade texto o al menos una captura de pantalla antes de diagnosticar.",
+    "errorTooLarge": "El archivo es demasiado grande. Prueba con menos imágenes o imágenes más pequeñas.",
+    "errorTooManyImages": "Puedes subir hasta 3 imágenes a la vez.",
+    "errorGeneric": "Algo salió mal al diagnosticar esto. Inténtalo de nuevo."
+  },
+  "result": {
+    "loadingText": "Analizando el error...",
+    "diagnosisHeading": "Diagnóstico",
+    "remediationHeading": "Pasos de solución",
+    "relatedDocsHeading": "Documentación relacionada",
+    "matchedEntry": "Coincide con un problema conocido: {id}",
+    "confidenceLabel": "Confianza",
+    "severity": {
+      "low": "Baja",
+      "medium": "Media",
+      "high": "Alta",
+      "critical": "Crítica"
+    },
+    "copyButton": "Copiar al portapapeles",
+    "copiedConfirmation": "Copiado",
+    "retryButton": "Iniciar un nuevo diagnóstico"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Diagnóstico da API da ElevenLabs",
+    "tagline": "Diagnostique, analise e corrija erros da API da ElevenLabs"
+  },
+  "languageSwitcher": {
+    "label": "Idioma",
+    "pickerTitle": "Escolha um idioma"
+  },
+  "input": {
+    "heading": "O que está acontecendo?",
+    "subheading": "Cole um log de erro, descreva o problema ou envie uma captura de tela.",
+    "textLabel": "Logs de erro ou descrição",
+    "textPlaceholder": "Cole uma mensagem de erro, uma linha de log ou descreva o que o cliente está enfrentando...",
+    "imageLabel": "Capturas de tela",
+    "imageHint": "Toque para enviar ou arraste e solte. Até 3 imagens.",
+    "imageRemove": "Remover imagem",
+    "submit": "Diagnosticar",
+    "submitting": "Diagnosticando...",
+    "validationEmpty": "Adicione um texto ou pelo menos uma captura de tela antes de diagnosticar.",
+    "errorTooLarge": "O envio é muito grande. Tente usar menos imagens ou imagens menores.",
+    "errorTooManyImages": "Você pode enviar até 3 imagens por vez.",
+    "errorGeneric": "Algo deu errado ao diagnosticar isso. Tente novamente."
+  },
+  "result": {
+    "loadingText": "Analisando o erro...",
+    "diagnosisHeading": "Diagnóstico",
+    "remediationHeading": "Etapas de correção",
+    "relatedDocsHeading": "Documentação relacionada",
+    "matchedEntry": "Correspondeu a um problema conhecido: {id}",
+    "confidenceLabel": "Confiança",
+    "severity": {
+      "low": "Baixa",
+      "medium": "Média",
+      "high": "Alta",
+      "critical": "Crítica"
+    },
+    "copyButton": "Copiar para a área de transferência",
+    "copiedConfirmation": "Copiado",
+    "retryButton": "Iniciar um novo diagnóstico"
+  }
+}

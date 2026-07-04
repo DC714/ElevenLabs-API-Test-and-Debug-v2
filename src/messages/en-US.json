@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "ElevenLabs API Diagnostics",
+    "tagline": "Diagnose, analyze, and remediate ElevenLabs API errors"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "pickerTitle": "Choose a language"
+  },
+  "input": {
+    "heading": "What's going wrong?",
+    "subheading": "Paste an error log, describe the issue, or upload a screenshot.",
+    "textLabel": "Error logs or description",
+    "textPlaceholder": "Paste an error message, log line, or describe what the client is experiencing...",
+    "imageLabel": "Screenshots",
+    "imageHint": "Tap to upload, or drag and drop. Up to 3 images.",
+    "imageRemove": "Remove image",
+    "submit": "Diagnose",
+    "submitting": "Diagnosing...",
+    "validationEmpty": "Add some text or at least one screenshot before diagnosing.",
+    "errorTooLarge": "That upload is too large. Try fewer or smaller images.",
+    "errorTooManyImages": "You can upload up to 3 images at a time.",
+    "errorGeneric": "Something went wrong while diagnosing this. Please try again."
+  },
+  "result": {
+    "loadingText": "Analyzing the error...",
+    "diagnosisHeading": "Diagnosis",
+    "remediationHeading": "Remediation steps",
+    "relatedDocsHeading": "Related documentation",
+    "matchedEntry": "Matched known issue: {id}",
+    "confidenceLabel": "Confidence",
+    "severity": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "copyButton": "Copy to clipboard",
+    "copiedConfirmation": "Copied",
+    "retryButton": "Start a new diagnosis"
+  }
+}
