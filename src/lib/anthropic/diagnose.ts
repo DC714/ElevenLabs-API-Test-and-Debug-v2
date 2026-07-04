@@ -42,7 +42,7 @@ export function runDiagnosis(request: DiagnoseRequest) {
     content.push({ type: "text", text: request.textInput });
   }
 
-  const client = getAnthropicClient();
+  const client = getAnthropicClient(request.apiKey);
 
   return client.messages.stream({
     model: "claude-opus-4-8",

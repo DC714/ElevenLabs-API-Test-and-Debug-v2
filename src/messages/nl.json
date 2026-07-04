@@ -20,9 +20,12 @@
     "validationEmpty": "Voeg tekst of minstens één screenshot toe voordat je diagnosticeert.",
     "errorTooLarge": "Die upload is te groot. Probeer minder of kleinere afbeeldingen.",
     "errorTooManyImages": "Je kunt maximaal 3 afbeeldingen tegelijk uploaden.",
-    "errorGeneric": "Er is iets misgegaan bij het diagnosticeren. Probeer het opnieuw."
+    "errorGeneric": "Er is iets misgegaan bij het diagnosticeren. Probeer het opnieuw.",
+    "apiKeyRequired": "Voeg je Anthropic API-sleutel toe (rechtsboven) voordat je een diagnose uitvoert."
   },
   "result": {
+    "idleTitle": "Nog geen diagnose",
+    "idleBody": "Vul de gegevens links in en klik op Diagnosticeren om te beginnen.",
     "loadingText": "Fout wordt geanalyseerd...",
     "diagnosisHeading": "Diagnose",
     "remediationHeading": "Oplossingsstappen",
@@ -38,5 +41,16 @@
     "copyButton": "Kopiëren naar klembord",
     "copiedConfirmation": "Gekopieerd",
     "retryButton": "Nieuwe diagnose starten"
+  },
+  "settings": {
+    "triggerLabel": "API-sleutel",
+    "title": "Anthropic API-sleutel",
+    "apiKeyLabel": "API-sleutel",
+    "apiKeyPlaceholder": "sk-ant-...",
+    "apiKeyHelp": "Wordt alleen opgeslagen in dit browsertabblad voor je huidige sessie en alleen verzonden naar ons diagnose-eindpunt. Wordt nooit op onze servers opgeslagen.",
+    "getKeyLink": "Haal een API-sleutel op via de Anthropic Console",
+    "save": "Opslaan",
+    "saved": "Opgeslagen",
+    "clear": "Wissen"
   }
 }

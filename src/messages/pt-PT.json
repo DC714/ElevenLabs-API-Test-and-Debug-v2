@@ -20,9 +20,12 @@
     "validationEmpty": "Adicione texto ou pelo menos uma captura de ecrã antes de diagnosticar.",
     "errorTooLarge": "O carregamento é demasiado grande. Experimente menos imagens ou imagens mais pequenas.",
     "errorTooManyImages": "Pode carregar até 3 imagens de cada vez.",
-    "errorGeneric": "Ocorreu um problema ao diagnosticar isto. Tente novamente."
+    "errorGeneric": "Ocorreu um problema ao diagnosticar isto. Tente novamente.",
+    "apiKeyRequired": "Adicione a sua chave de API da Anthropic (canto superior direito) antes de executar um diagnóstico."
   },
   "result": {
+    "idleTitle": "Ainda sem diagnóstico",
+    "idleBody": "Preencha os detalhes à esquerda e clique em Diagnosticar para começar.",
     "loadingText": "A analisar o erro...",
     "diagnosisHeading": "Diagnóstico",
     "remediationHeading": "Passos de resolução",
@@ -38,5 +41,16 @@
     "copyButton": "Copiar para a área de transferência",
     "copiedConfirmation": "Copiado",
     "retryButton": "Iniciar um novo diagnóstico"
+  },
+  "settings": {
+    "triggerLabel": "Chave de API",
+    "title": "Chave de API da Anthropic",
+    "apiKeyLabel": "Chave de API",
+    "apiKeyPlaceholder": "sk-ant-...",
+    "apiKeyHelp": "Guardada apenas neste separador do navegador durante a sua sessão atual, e enviada apenas para o nosso endpoint de diagnóstico. Nunca é guardada nos nossos servidores.",
+    "getKeyLink": "Obtenha uma chave de API na Consola da Anthropic",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "clear": "Limpar"
   }
 }

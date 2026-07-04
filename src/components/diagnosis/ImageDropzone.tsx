@@ -57,7 +57,7 @@ export function ImageDropzone({
 
   return (
     <div>
-      <label className="mb-1 block text-sm font-medium">{t("imageLabel")}</label>
+      <label className="mb-1.5 block text-sm font-medium text-[var(--neutral-900)]">{t("imageLabel")}</label>
       <div
         role="button"
         tabIndex={0}
@@ -83,10 +83,12 @@ export function ImageDropzone({
           if (files.length > 0) void addFiles(files);
         }}
         className={`flex min-h-24 cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed p-4 text-center text-sm transition-colors ${
-          isDragging ? "border-black/40 bg-black/5 dark:border-white/40 dark:bg-white/10" : "border-black/15 dark:border-white/20"
+          isDragging
+            ? "border-[var(--neutral-400)] bg-[var(--neutral-50)]"
+            : "border-[var(--neutral-200)] hover:border-[var(--neutral-300)]"
         }`}
       >
-        <span className="opacity-70">{t("imageHint")}</span>
+        <span className="text-[var(--neutral-500)]">{t("imageHint")}</span>
         <input
           ref={inputRef}
           type="file"
@@ -115,7 +117,7 @@ export function ImageDropzone({
                 type="button"
                 aria-label={t("imageRemove")}
                 onClick={() => removeImage(index)}
-                className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-black/80 text-sm text-white"
+                className="absolute -right-2 -top-2 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--neutral-950)] text-sm text-[var(--eggshell)]"
               >
                 ×
               </button>
