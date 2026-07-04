@@ -1,10 +1,10 @@
 import { AppShell } from "@/components/layout/AppShell";
-import { InputPanel } from "@/components/diagnosis/InputPanel";
+import { DiagnosisWorkspace } from "@/components/diagnosis/DiagnosisWorkspace";
 
 export default function DiagnosePage() {
   return (
     <AppShell>
-      <InputPanel />
+      <DiagnosisWorkspace />
     </AppShell>
   );
 }

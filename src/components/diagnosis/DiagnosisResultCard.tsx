@@ -2,19 +2,23 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "@/i18n/navigation";
 import type { DiagnosisResult } from "@/types/diagnosis";
 
 const SEVERITY_STYLES: Record<DiagnosisResult["severity"], string> = {
-  low: "bg-slate-200 text-slate-800 dark:bg-slate-700 dark:text-slate-100",
-  medium: "bg-amber-200 text-amber-900 dark:bg-amber-700 dark:text-amber-50",
-  high: "bg-orange-200 text-orange-900 dark:bg-orange-700 dark:text-orange-50",
-  critical: "bg-red-200 text-red-900 dark:bg-red-700 dark:text-red-50",
+  low: "bg-[var(--neutral-100)] text-[var(--neutral-800)]",
+  medium: "bg-[var(--accent-orange-100)] text-[var(--accent-orange-800)]",
+  high: "bg-[var(--accent-orange-600)] text-[var(--eggshell)]",
+  critical: "bg-[var(--accent-red-600)] text-[var(--eggshell)]",
 };
 
-export function DiagnosisResultCard({ result }: { result: DiagnosisResult }) {
+export function DiagnosisResultCard({
+  result,
+  onReset,
+}: {
+  result: DiagnosisResult;
+  onReset: () => void;
+}) {
   const t = useTranslations("result");
-  const router = useRouter();
   const [copied, setCopied] = useState(false);
 
   async function copyToClipboard() {
@@ -31,33 +35,33 @@ export function DiagnosisResultCard({ result }: { result: DiagnosisResult }) {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-4">
+    <div className="flex flex-col gap-5 p-6">
       <div className="flex flex-wrap items-center gap-2">
         <span
-          className={`min-h-7 rounded-full px-3 py-1 text-xs font-semibold ${SEVERITY_STYLES[result.severity]}`}
+          className={`min-h-7 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide ${SEVERITY_STYLES[result.severity]}`}
         >
           {t(`severity.${result.severity}`)}
         </span>
-        <span className="text-xs opacity-70">
+        <span className="text-xs text-[var(--neutral-500)]">
           {t("confidenceLabel")}: {result.confidence}
         </span>
         {result.matchedKbId && (
-          <span className="text-xs opacity-70">{t("matchedEntry", { id: result.matchedKbId })}</span>
+          <span className="text-xs text-[var(--neutral-500)]">{t("matchedEntry", { id: result.matchedKbId })}</span>
         )}
       </div>
 
       <div>
-        <h3 className="mb-1 text-sm font-semibold">{t("diagnosisHeading")}</h3>
-        <p className="whitespace-pre-wrap text-base">{result.diagnosis}</p>
+        <h3 className="mb-1 text-sm font-semibold text-[var(--neutral-900)]">{t("diagnosisHeading")}</h3>
+        <p className="whitespace-pre-wrap text-[15px] text-[var(--neutral-950)]">{result.diagnosis}</p>
       </div>
 
       <div>
-        <h3 className="mb-1 text-sm font-semibold">{t("remediationHeading")}</h3>
+        <h3 className="mb-1 text-sm font-semibold text-[var(--neutral-900)]">{t("remediationHeading")}</h3>
         <ol className="flex flex-col gap-2">
           {result.remediationSteps.map((step, index) => (
             <li
               key={index}
-              className="min-h-11 rounded-xl border border-black/10 p-3 text-sm dark:border-white/10"
+              className="min-h-11 rounded-xl border border-[var(--neutral-200)] p-3 text-[15px] text-[var(--neutral-950)]"
             >
               <span className="mr-2 font-semibold">{index + 1}.</span>
               {step}
@@ -68,7 +72,7 @@ export function DiagnosisResultCard({ result }: { result: DiagnosisResult }) {
 
       {result.relatedDocs.length > 0 && (
         <div>
-          <h3 className="mb-1 text-sm font-semibold">{t("relatedDocsHeading")}</h3>
+          <h3 className="mb-1 text-sm font-semibold text-[var(--neutral-900)]">{t("relatedDocsHeading")}</h3>
           <ul className="flex flex-col gap-1">
             {result.relatedDocs.map((doc) => (
               <li key={doc.url}>
@@ -76,7 +80,7 @@ export function DiagnosisResultCard({ result }: { result: DiagnosisResult }) {
                   href={doc.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm underline underline-offset-2"
+                  className="text-sm text-[var(--neutral-700)] underline underline-offset-2"
                 >
                   {doc.label}
                 </a>
@@ -90,14 +94,14 @@ export function DiagnosisResultCard({ result }: { result: DiagnosisResult }) {
         <button
           type="button"
           onClick={copyToClipboard}
-          className="min-h-11 flex-1 rounded-full border border-black/15 px-4 text-sm font-semibold dark:border-white/20"
+          className="min-h-11 flex-1 rounded-xl border border-[var(--neutral-200)] px-4 text-sm font-semibold text-[var(--neutral-900)] hover:bg-[var(--neutral-50)]"
         >
           {copied ? t("copiedConfirmation") : t("copyButton")}
         </button>
         <button
           type="button"
-          onClick={() => router.push("/")}
-          className="min-h-11 flex-1 rounded-full bg-black px-4 text-sm font-semibold text-white dark:bg-white dark:text-black"
+          onClick={onReset}
+          className="min-h-11 flex-1 rounded-xl bg-[var(--neutral-950)] px-4 text-sm font-semibold text-[var(--eggshell)] hover:opacity-90"
         >
           {t("retryButton")}
         </button>

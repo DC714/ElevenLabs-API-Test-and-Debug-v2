@@ -20,9 +20,12 @@
     "validationEmpty": "Dodaj tekst lub co najmniej jeden zrzut ekranu przed rozpoczęciem diagnozy.",
     "errorTooLarge": "Przesyłane pliki są zbyt duże. Spróbuj mniejszej liczby lub mniejszych obrazów.",
     "errorTooManyImages": "Możesz przesłać maksymalnie 3 obrazy naraz.",
-    "errorGeneric": "Coś poszło nie tak podczas diagnozowania. Spróbuj ponownie."
+    "errorGeneric": "Coś poszło nie tak podczas diagnozowania. Spróbuj ponownie.",
+    "apiKeyRequired": "Dodaj swój klucz API Anthropic (prawy górny róg) przed rozpoczęciem diagnozy."
   },
   "result": {
+    "idleTitle": "Brak diagnozy",
+    "idleBody": "Wypełnij szczegóły po lewej stronie i kliknij Diagnozuj, aby rozpocząć.",
     "loadingText": "Analizowanie błędu...",
     "diagnosisHeading": "Diagnoza",
     "remediationHeading": "Kroki naprawcze",
@@ -38,5 +41,16 @@
     "copyButton": "Kopiuj do schowka",
     "copiedConfirmation": "Skopiowano",
     "retryButton": "Rozpocznij nową diagnozę"
+  },
+  "settings": {
+    "triggerLabel": "Klucz API",
+    "title": "Klucz API Anthropic",
+    "apiKeyLabel": "Klucz API",
+    "apiKeyPlaceholder": "sk-ant-...",
+    "apiKeyHelp": "Przechowywany wyłącznie w tej karcie przeglądarki na czas bieżącej sesji i wysyłany tylko do naszego punktu diagnostycznego. Nigdy nie jest zapisywany na naszych serwerach.",
+    "getKeyLink": "Uzyskaj klucz API w Anthropic Console",
+    "save": "Zapisz",
+    "saved": "Zapisano",
+    "clear": "Wyczyść"
   }
 }

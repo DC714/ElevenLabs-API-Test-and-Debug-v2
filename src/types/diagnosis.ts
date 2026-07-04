@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 export const diagnoseRequestSchema = z
   .object({
     locale: z.enum(routing.locales),
+    apiKey: z.string().min(1),
     textInput: z.string().max(20_000).optional(),
     images: z
       .array(

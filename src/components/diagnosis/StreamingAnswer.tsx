@@ -5,12 +5,12 @@ export function StreamingAnswer({ thinkingText }: { thinkingText: string }) {
   const t = useTranslations("result");
 
   return (
-    <div className="flex flex-col gap-2 p-4" role="status" aria-live="polite">
-      <div className="flex items-center gap-2 text-sm opacity-70">
-        <span className="h-2 w-2 animate-pulse rounded-full bg-current" />
+    <div className="flex flex-col gap-2 p-6" role="status" aria-live="polite">
+      <div className="flex items-center gap-2 text-sm text-[var(--neutral-600)]">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-[var(--accent-orange-500)]" />
         {t("loadingText")}
       </div>
-      <p className="whitespace-pre-wrap text-sm opacity-80">{thinkingText}</p>
+      <p className="whitespace-pre-wrap text-sm text-[var(--neutral-700)]">{thinkingText}</p>
     </div>
   );
 }

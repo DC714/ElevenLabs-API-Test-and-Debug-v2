@@ -20,9 +20,12 @@
     "validationEmpty": "Add some text or at least one screenshot before diagnosing.",
     "errorTooLarge": "That upload is too large. Try fewer or smaller images.",
     "errorTooManyImages": "You can upload up to 3 images at a time.",
-    "errorGeneric": "Something went wrong while diagnosing this. Please try again."
+    "errorGeneric": "Something went wrong while diagnosing this. Please try again.",
+    "apiKeyRequired": "Add your Anthropic API key (top right) before running a diagnosis."
   },
   "result": {
+    "idleTitle": "No diagnosis yet",
+    "idleBody": "Fill in the details on the left and click Diagnose to get started.",
     "loadingText": "Analyzing the error...",
     "diagnosisHeading": "Diagnosis",
     "remediationHeading": "Remediation steps",
@@ -38,5 +41,16 @@
     "copyButton": "Copy to clipboard",
     "copiedConfirmation": "Copied",
     "retryButton": "Start a new diagnosis"
+  },
+  "settings": {
+    "triggerLabel": "API Key",
+    "title": "Anthropic API key",
+    "apiKeyLabel": "API key",
+    "apiKeyPlaceholder": "sk-ant-...",
+    "apiKeyHelp": "Stored only in this browser tab for your current session, and sent only to our diagnosis endpoint. It is never saved on our servers.",
+    "getKeyLink": "Get an API key from the Anthropic Console",
+    "save": "Save",
+    "saved": "Saved",
+    "clear": "Clear"
   }
 }

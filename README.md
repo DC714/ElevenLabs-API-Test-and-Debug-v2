@@ -1,18 +1,12 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-It's a mobile-first tool that helps ElevenLabs forward-deployed engineers diagnose API errors from pasted logs, free-text descriptions, or screenshots, across 7 locales.
+It's a desktop-first web tool that helps ElevenLabs forward-deployed engineers diagnose API errors from pasted logs, free-text descriptions, or screenshots, across 7 locales.
 
-## Environment variables
+## Anthropic API key
 
-Create `.env.local` (gitignored) with:
+There is no server-side Anthropic key to configure. Each user pastes their own Anthropic API key into the "API Key" button in the app's header; it's stored only in that browser tab's `sessionStorage` (cleared when the tab closes) and sent only to this app's own `/api/diagnose` endpoint, which uses it for that request and never persists it. Get a key at [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys).
 
-```bash
-ELEVENLABS_DIAGNOSTIC_ANTHROPIC_API_KEY=sk-ant-...
-```
-
-This is the server-side Anthropic API key used by `src/app/api/diagnose/route.ts` to run diagnoses. It is intentionally named differently from the `ANTHROPIC_API_KEY` GitHub Actions secret used by `.github/workflows/claude.yml`, so the two can be rotated independently without confusion.
-
-When deploying, add the same variable in the Vercel project's Settings → Environment Variables, scoped to Production, Preview, and Development.
+This is unrelated to the `ANTHROPIC_API_KEY` GitHub Actions secret used by `.github/workflows/claude.yml`, which only powers the `@claude` GitHub bot.
 
 ## Getting Started
 
@@ -32,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, matching ElevenLabs' brand typography.
 
 ## Learn More
 
