@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { MessageStream } from "@anthropic-ai/sdk/lib/MessageStream";
-import { readApiKey, useHasApiKey } from "@/lib/api-key-session";
+import { anthropicKeySession } from "@/lib/api-key-session";
 import { diagnosisResultSchema, type DiagnosisResult } from "@/types/diagnosis";
 import { InputPanel, type InputPanelSubmission } from "./InputPanel";
 import { LoadingState } from "./LoadingState";
@@ -21,10 +21,10 @@ export function DiagnosisWorkspace() {
   const tInput = useTranslations("input");
   const tResult = useTranslations("result");
   const [state, setState] = useState<State>({ status: "idle" });
-  const hasApiKey = useHasApiKey();
+  const hasApiKey = anthropicKeySession.useHasValue();
 
   async function handleSubmit(submission: InputPanelSubmission) {
-    const apiKey = readApiKey();
+    const apiKey = anthropicKeySession.read();
     if (!apiKey) return;
 
     setState({ status: "thinking", text: "" });
