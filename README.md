@@ -1,44 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ElevenLabs API Diagnostics
 
-It's a desktop-first web tool that helps ElevenLabs forward-deployed engineers diagnose API errors from pasted logs, free-text descriptions, or screenshots, across 7 locales.
+A desktop-first web app for ElevenLabs forward-deployed engineers (FDEs). It has two purposes:
 
-## Anthropic API key
+1. **Diagnose** — paste an error log, describe an issue, or upload a screenshot, and get an AI-powered diagnosis (root cause, remediation steps, related docs) backed by a curated ElevenLabs error knowledge base.
+2. **Demo** — run live, interactive demos of every major ElevenLabs API (Text-to-Speech, Speech-to-Text, Voices/cloning, Conversational AI, Dubbing, Sound Effects) in front of clients and prospects.
 
-There is no server-side Anthropic key to configure. Each user pastes their own Anthropic API key into the "API Key" button in the app's header; it's stored only in that browser tab's `sessionStorage` (cleared when the tab closes) and sent only to this app's own `/api/diagnose` endpoint, which uses it for that request and never persists it. Get a key at [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys).
+The app is available in 7 locales: English (US), Polish, Spanish, Brazilian Portuguese, Portugal Portuguese, Greek, and Dutch.
+
+## Authentication and data storage
+
+Sign-in is required to use the app — email/password, Google, or GitHub. Accounts, sessions, language preference, and API keys are stored in a Neon Postgres database, using [Better Auth](https://www.better-auth.com/) for authentication and [Drizzle ORM](https://orm.drizzle.team/) for the database layer.
+
+Each user adds their own **Anthropic** API key (used for Diagnose) and **ElevenLabs** API key (used for the Demo suite) once, from the Settings dialog in the app header. Keys are encrypted at rest (AES-256-GCM) and are never sent back to the browser — server routes decrypt the caller's own key on demand using their session. The one exception is the Text-to-Speech demo, which opens a WebSocket directly from the browser to ElevenLabs for lower latency; that route has a narrow, explicitly-scoped endpoint that reveals the raw key to the browser only for that connection.
+
+Get an Anthropic key at [console.anthropic.com/settings/keys](https://console.anthropic.com/settings/keys) and an ElevenLabs key at the [ElevenLabs dashboard](https://elevenlabs.io/app/settings/api-keys).
 
 This is unrelated to the `ANTHROPIC_API_KEY` GitHub Actions secret used by `.github/workflows/claude.yml`, which only powers the `@claude` GitHub bot.
 
-## Getting Started
+## Getting started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set up environment variables
+
+Create `.env.local` in the project root:
+
+```bash
+# Neon Postgres connection string (from your Neon project's Connection Details)
+DATABASE_URL=
+
+# Better Auth
+BETTER_AUTH_SECRET=   # generate with: openssl rand -base64 32
+BETTER_AUTH_URL=http://localhost:3000
+
+# Encrypts stored Anthropic/ElevenLabs API keys at rest (32-byte hex key)
+API_KEY_ENCRYPTION_KEY=   # generate with: openssl rand -hex 32
+
+# Google OAuth (console.cloud.google.com) - leave blank to disable Google sign-in
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+# GitHub OAuth (github.com/settings/developers) - leave blank to disable GitHub sign-in
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+```
+
+Email/password sign-in works with just the first three variables set. Google/GitHub sign-in are optional — each one only appears in the UI once its client ID/secret pair is set.
+
+For OAuth redirect URIs, use `{BETTER_AUTH_URL}/api/auth/callback/google` and `{BETTER_AUTH_URL}/api/auth/callback/github`.
+
+### 3. Run database migrations
+
+```bash
+npm run db:generate   # generate a SQL migration from src/db/schema.ts
+npm run db:migrate    # apply migrations to DATABASE_URL
+npm run db:studio     # optional: browse the database in Drizzle Studio
+```
+
+### 4. Run the dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). You'll be redirected to sign in or register before you can use the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, matching ElevenLabs' brand typography.
+- **Next.js 16** (App Router, Turbopack) + **React 19**
+- **next-intl** for i18n routing across 7 locales
+- **Better Auth** for authentication (email/password, Google, GitHub)
+- **Drizzle ORM** + **Neon Postgres** (`@neondatabase/serverless`, HTTP driver)
+- **Anthropic SDK** for the diagnosis engine (Claude, with vision support for screenshots)
+- **@elevenlabs/react** for the Conversational AI demo
+- **Tailwind CSS v4**
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed on Vercel. In addition to the environment variables above (with `BETTER_AUTH_URL` set to your production URL), make sure to run `npm run db:migrate` against your production database before the first deploy that needs the new schema.
