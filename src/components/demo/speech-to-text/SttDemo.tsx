@@ -2,15 +2,14 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { elevenLabsKeySession } from "@/lib/api-key-session";
-import { elevenLabsHeaders } from "@/lib/elevenlabs/client-fetch";
+import { usePreferences } from "@/components/PreferencesProvider";
 import type { SpeechToTextResult } from "@/lib/elevenlabs/types";
 import { useMediaRecorder } from "@/lib/use-media-recorder";
 
 export function SttDemo() {
   const t = useTranslations("demoSpeechToText");
   const tDemo = useTranslations("demo");
-  const hasApiKey = elevenLabsKeySession.useHasValue();
+  const { hasElevenLabsKey: hasApiKey } = usePreferences();
   const recorder = useMediaRecorder();
 
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -40,7 +39,6 @@ export function SttDemo() {
 
       const response = await fetch("/api/elevenlabs/stt", {
         method: "POST",
-        headers: elevenLabsHeaders(),
         body: formData,
       });
 

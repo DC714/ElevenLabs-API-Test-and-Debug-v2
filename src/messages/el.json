@@ -5,7 +5,27 @@
   },
   "nav": {
     "diagnose": "Διάγνωση",
-    "demo": "Επίδειξη"
+    "demo": "Επίδειξη",
+    "signOut": "Αποσύνδεση"
+  },
+  "auth": {
+    "loginTitle": "Σύνδεση",
+    "registerTitle": "Δημιουργία λογαριασμού",
+    "nameLabel": "Όνομα",
+    "emailLabel": "Email",
+    "passwordLabel": "Κωδικός πρόσβασης",
+    "loginButton": "Σύνδεση",
+    "registerButton": "Δημιουργία λογαριασμού",
+    "signingIn": "Σύνδεση...",
+    "signingUp": "Δημιουργία λογαριασμού...",
+    "continueWithGoogle": "Συνέχεια με Google",
+    "continueWithGitHub": "Συνέχεια με GitHub",
+    "orDivider": "ή",
+    "noAccount": "Δεν έχετε λογαριασμό;",
+    "haveAccount": "Έχετε ήδη λογαριασμό;",
+    "registerLink": "Εγγραφή",
+    "loginLink": "Σύνδεση",
+    "errorGeneric": "Κάτι πήγε στραβά. Ελέγξτε τα στοιχεία σας και δοκιμάστε ξανά."
   },
   "languageSwitcher": {
     "label": "Γλώσσα",

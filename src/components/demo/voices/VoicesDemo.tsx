@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { elevenLabsKeySession } from "@/lib/api-key-session";
-import { elevenLabsHeaders } from "@/lib/elevenlabs/client-fetch";
+import { usePreferences } from "@/components/PreferencesProvider";
 import type { ElevenLabsVoice } from "@/lib/elevenlabs/types";
 import { useMediaRecorder } from "@/lib/use-media-recorder";
 
@@ -14,7 +13,7 @@ type ListState =
 
 /** Pure fetch, no React state — safe to call from an effect or an event handler alike. */
 async function fetchVoicesData(): Promise<ElevenLabsVoice[]> {
-  const response = await fetch("/api/elevenlabs/voices", { headers: elevenLabsHeaders() });
+  const response = await fetch("/api/elevenlabs/voices");
   if (!response.ok) throw new Error("failed to load voices");
   const data = (await response.json()) as { voices: ElevenLabsVoice[] };
   return data.voices ?? [];
@@ -23,7 +22,7 @@ async function fetchVoicesData(): Promise<ElevenLabsVoice[]> {
 export function VoicesDemo() {
   const t = useTranslations("demoVoices");
   const tDemo = useTranslations("demo");
-  const hasApiKey = elevenLabsKeySession.useHasValue();
+  const { hasElevenLabsKey: hasApiKey } = usePreferences();
   const [listState, setListState] = useState<ListState>({ status: "idle" });
 
   const [cloneName, setCloneName] = useState("");
@@ -73,7 +72,6 @@ export function VoicesDemo() {
 
       const response = await fetch("/api/elevenlabs/voices/clone", {
         method: "POST",
-        headers: elevenLabsHeaders(),
         body: formData,
       });
 

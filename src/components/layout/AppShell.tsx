@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { NavTabs } from "./NavTabs";
+import { SignOutButton } from "./SignOutButton";
 import { SettingsDialog } from "@/components/settings/SettingsDialog";
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -24,6 +25,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="flex shrink-0 items-center gap-2">
             <SettingsDialog />
             <LanguageSwitcher />
+            <SignOutButton />
           </div>
         </div>
       </header>

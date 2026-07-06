@@ -5,7 +5,27 @@
   },
   "nav": {
     "diagnose": "Diagnoza",
-    "demo": "Demo"
+    "demo": "Demo",
+    "signOut": "Wyloguj się"
+  },
+  "auth": {
+    "loginTitle": "Zaloguj się",
+    "registerTitle": "Utwórz konto",
+    "nameLabel": "Imię",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Hasło",
+    "loginButton": "Zaloguj się",
+    "registerButton": "Utwórz konto",
+    "signingIn": "Logowanie...",
+    "signingUp": "Tworzenie konta...",
+    "continueWithGoogle": "Kontynuuj z Google",
+    "continueWithGitHub": "Kontynuuj z GitHub",
+    "orDivider": "lub",
+    "noAccount": "Nie masz konta?",
+    "haveAccount": "Masz już konto?",
+    "registerLink": "Zarejestruj się",
+    "loginLink": "Zaloguj się",
+    "errorGeneric": "Coś poszło nie tak. Sprawdź swoje dane i spróbuj ponownie."
   },
   "languageSwitcher": {
     "label": "Język",

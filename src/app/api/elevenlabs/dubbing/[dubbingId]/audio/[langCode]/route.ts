@@ -3,10 +3,10 @@ import { ELEVENLABS_API_BASE, getApiKeyOrError, relayBinary } from "@/lib/eleven
 export const runtime = "nodejs";
 
 export async function GET(
-  request: Request,
+  _request: Request,
   { params }: { params: Promise<{ dubbingId: string; langCode: string }> },
 ) {
-  const result = getApiKeyOrError(request);
+  const result = await getApiKeyOrError();
   if ("error" in result) return result.error;
 
   const { dubbingId, langCode } = await params;

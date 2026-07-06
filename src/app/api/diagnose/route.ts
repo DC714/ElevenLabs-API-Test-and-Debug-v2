@@ -2,11 +2,18 @@ import { NextResponse } from "next/server";
 import { APIError } from "@anthropic-ai/sdk";
 import { diagnoseRequestSchema } from "@/types/diagnosis";
 import { runDiagnosis } from "@/lib/anthropic/diagnose";
+import { getCurrentSession } from "@/lib/session";
+import { getUserApiKey } from "@/lib/user-keys";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
 export async function POST(request: Request) {
+  const session = await getCurrentSession();
+  if (!session) {
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+  }
+
   let body: unknown;
   try {
     body = await request.json();
@@ -22,8 +29,16 @@ export async function POST(request: Request) {
     );
   }
 
+  const apiKey = await getUserApiKey(session.user.id, "anthropic");
+  if (!apiKey) {
+    return NextResponse.json(
+      { error: "No Anthropic API key saved. Add one in Settings." },
+      { status: 400 },
+    );
+  }
+
   try {
-    const stream = runDiagnosis(parsed.data);
+    const stream = runDiagnosis(parsed.data, apiKey);
 
     // Wait for the Anthropic response to actually connect before streaming it back, so an
     // immediate failure (e.g. an invalid API key) surfaces as a clean JSON error instead of

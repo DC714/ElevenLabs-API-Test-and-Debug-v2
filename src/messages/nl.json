@@ -5,7 +5,27 @@
   },
   "nav": {
     "diagnose": "Diagnose",
-    "demo": "Demo"
+    "demo": "Demo",
+    "signOut": "Uitloggen"
+  },
+  "auth": {
+    "loginTitle": "Inloggen",
+    "registerTitle": "Account aanmaken",
+    "nameLabel": "Naam",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Wachtwoord",
+    "loginButton": "Inloggen",
+    "registerButton": "Account aanmaken",
+    "signingIn": "Bezig met inloggen...",
+    "signingUp": "Account wordt aangemaakt...",
+    "continueWithGoogle": "Doorgaan met Google",
+    "continueWithGitHub": "Doorgaan met GitHub",
+    "orDivider": "of",
+    "noAccount": "Nog geen account?",
+    "haveAccount": "Heb je al een account?",
+    "registerLink": "Registreren",
+    "loginLink": "Inloggen",
+    "errorGeneric": "Er is iets misgegaan. Controleer je gegevens en probeer het opnieuw."
   },
   "languageSwitcher": {
     "label": "Taal",

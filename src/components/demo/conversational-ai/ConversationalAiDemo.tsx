@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useConversation } from "@elevenlabs/react";
-import { elevenLabsKeySession } from "@/lib/api-key-session";
-import { elevenLabsHeaders } from "@/lib/elevenlabs/client-fetch";
+import { usePreferences } from "@/components/PreferencesProvider";
 
 interface TranscriptEntry {
   role: "user" | "agent";
@@ -14,7 +13,7 @@ interface TranscriptEntry {
 export function ConversationalAiDemo() {
   const t = useTranslations("demoConversationalAi");
   const tDemo = useTranslations("demo");
-  const hasApiKey = elevenLabsKeySession.useHasValue();
+  const { hasElevenLabsKey: hasApiKey } = usePreferences();
 
   const [agentId, setAgentId] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +46,6 @@ export function ConversationalAiDemo() {
     try {
       const response = await fetch(
         `/api/elevenlabs/convai/signed-url?agentId=${encodeURIComponent(agentId.trim())}`,
-        { headers: elevenLabsHeaders() },
       );
       if (!response.ok) {
         setError(t("errorGeneric"));
@@ -86,7 +84,7 @@ export function ConversationalAiDemo() {
         {!connected ? (
           <button
             type="button"
-            onClick={handleStart}
+            onClick={() => void handleStart()}
             disabled={connecting}
             className="min-h-11 rounded-xl bg-[var(--neutral-950)] px-4 py-2 text-[15px] font-semibold text-[var(--eggshell)] transition-opacity hover:opacity-90 disabled:opacity-50"
           >

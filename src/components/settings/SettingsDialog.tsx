@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { anthropicKeySession, elevenLabsKeySession } from "@/lib/api-key-session";
+import { usePreferences } from "@/components/PreferencesProvider";
 import { ApiKeyField } from "./ApiKeyField";
 
 export function SettingsDialog() {
   const t = useTranslations("settings");
   const [open, setOpen] = useState(false);
-  const hasAnthropicKey = anthropicKeySession.useHasValue();
-  const hasElevenLabsKey = elevenLabsKeySession.useHasValue();
+  const { hasAnthropicKey, hasElevenLabsKey, refresh } = usePreferences();
 
   return (
     <div className="relative shrink-0">
@@ -42,7 +41,9 @@ export function SettingsDialog() {
             <p className="tracking-display text-lg font-light text-[var(--neutral-950)]">{t("title")}</p>
 
             <ApiKeyField
-              session={anthropicKeySession}
+              provider="anthropicApiKey"
+              hasKey={hasAnthropicKey}
+              onSaved={refresh}
               inputId="anthropic-api-key"
               title={t("anthropic.title")}
               helpText={t("anthropic.help")}
@@ -58,7 +59,9 @@ export function SettingsDialog() {
             <hr className="border-[var(--neutral-200)]" />
 
             <ApiKeyField
-              session={elevenLabsKeySession}
+              provider="elevenlabsApiKey"
+              hasKey={hasElevenLabsKey}
+              onSaved={refresh}
               inputId="elevenlabs-api-key"
               title={t("elevenlabs.title")}
               helpText={t("elevenlabs.help")}

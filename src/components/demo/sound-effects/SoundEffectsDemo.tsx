@@ -2,13 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { elevenLabsKeySession } from "@/lib/api-key-session";
-import { elevenLabsHeaders } from "@/lib/elevenlabs/client-fetch";
+import { usePreferences } from "@/components/PreferencesProvider";
 
 export function SoundEffectsDemo() {
   const t = useTranslations("demoSoundEffects");
   const tDemo = useTranslations("demo");
-  const hasApiKey = elevenLabsKeySession.useHasValue();
+  const { hasElevenLabsKey: hasApiKey } = usePreferences();
 
   const [prompt, setPrompt] = useState("");
   const [duration, setDuration] = useState(5);
@@ -39,7 +38,7 @@ export function SoundEffectsDemo() {
     try {
       const response = await fetch("/api/elevenlabs/sound-effects", {
         method: "POST",
-        headers: elevenLabsHeaders({ "Content-Type": "application/json" }),
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: prompt.trim(), duration_seconds: duration }),
       });
 
