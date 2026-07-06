@@ -5,7 +5,7 @@ A desktop-first web app for ElevenLabs forward-deployed engineers (FDEs). It has
 1. **Diagnose** — paste an error log, describe an issue, or upload a screenshot, and get an AI-powered diagnosis (root cause, remediation steps, related docs) backed by a curated ElevenLabs error knowledge base.
 2. **Demo** — run live, interactive demos of every major ElevenLabs API (Text-to-Speech, Speech-to-Text, Voices/cloning, Conversational AI, Dubbing, Sound Effects) in front of clients and prospects.
 
-The app is available in 7 locales: English (US), Polish, Spanish, Brazilian Portuguese, Portugal Portuguese, Greek, and Dutch.
+The app is available in 7 languages: English (US), Polish, Spanish, Brazilian Portuguese, Portugal Portuguese, Greek, and Dutch.
 
 ## Authentication and data storage
 
