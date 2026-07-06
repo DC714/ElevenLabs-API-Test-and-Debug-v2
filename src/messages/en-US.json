@@ -3,6 +3,10 @@
     "title": "ElevenLabs API Diagnostics",
     "tagline": "Diagnose, analyze, and remediate ElevenLabs API errors"
   },
+  "nav": {
+    "diagnose": "Diagnose",
+    "demo": "Demo"
+  },
   "languageSwitcher": {
     "label": "Language",
     "pickerTitle": "Choose a language"
@@ -42,15 +46,151 @@
     "copiedConfirmation": "Copied",
     "retryButton": "Start a new diagnosis"
   },
+  "demo": {
+    "landingTitle": "ElevenLabs API demos",
+    "landingSubtitle": "Pick an API to demo live for a client or prospect.",
+    "apiKeyRequired": "Add your ElevenLabs API key (top right) to run this demo.",
+    "apis": {
+      "textToSpeech": {
+        "title": "Text to Speech",
+        "description": "Turn written text into natural-sounding speech in any of dozens of voices."
+      },
+      "speechToText": {
+        "title": "Speech to Text",
+        "description": "Transcribe recorded or uploaded audio into accurate text."
+      },
+      "voices": {
+        "title": "Voices",
+        "description": "Browse the account's voice library and clone a new voice from a sample."
+      },
+      "conversationalAi": {
+        "title": "Conversational AI",
+        "description": "Have a live, real-time spoken conversation with a voice agent."
+      },
+      "dubbing": {
+        "title": "Dubbing",
+        "description": "Translate and dub a video or audio clip into another language."
+      },
+      "soundEffects": {
+        "title": "Sound Effects",
+        "description": "Generate a short sound effect from a text description."
+      }
+    }
+  },
+  "demoSoundEffects": {
+    "promptLabel": "Describe the sound",
+    "promptPlaceholder": "e.g. Footsteps on gravel, a door creaking open...",
+    "durationLabel": "Duration",
+    "generateButton": "Generate",
+    "generating": "Generating...",
+    "validationEmpty": "Describe the sound effect you want to generate.",
+    "errorGeneric": "Something went wrong generating that sound effect. Please try again."
+  },
+  "demoVoices": {
+    "listHeading": "Voice library",
+    "loadingVoices": "Loading voices...",
+    "errorLoadingVoices": "Couldn't load the voice library. Check the API key and try again.",
+    "noVoices": "No voices found in this account.",
+    "cloneHeading": "Clone a voice",
+    "cloneNameLabel": "Name",
+    "cloneNamePlaceholder": "e.g. Client demo voice",
+    "recordButton": "Record a sample",
+    "stopButton": "Stop recording",
+    "recordingLabel": "Recording...",
+    "recordedLabel": "Sample recorded",
+    "micDenied": "Microphone access was denied. Allow microphone access, or upload a file instead.",
+    "uploadLabel": "Or upload an audio file",
+    "cloneSubmit": "Clone voice",
+    "cloning": "Cloning...",
+    "cloneSuccess": "Voice cloned successfully.",
+    "cloneError": "Something went wrong cloning that voice. Please try again.",
+    "validationName": "Give the voice a name.",
+    "validationSample": "Record or upload a voice sample first."
+  },
+  "demoSpeechToText": {
+    "heading": "Record or upload audio",
+    "recordButton": "Record",
+    "stopButton": "Stop recording",
+    "recordingLabel": "Recording...",
+    "recordedLabel": "Clip recorded",
+    "micDenied": "Microphone access was denied. Allow microphone access, or upload a file instead.",
+    "uploadLabel": "Or upload an audio file",
+    "submitButton": "Transcribe",
+    "transcribing": "Transcribing...",
+    "transcriptHeading": "Transcript",
+    "validationSample": "Record or upload a clip first.",
+    "errorGeneric": "Something went wrong transcribing that clip. Please try again."
+  },
+  "demoDubbing": {
+    "uploadLabel": "Video or audio file",
+    "targetLanguageLabel": "Target language",
+    "submitButton": "Start dubbing",
+    "starting": "Starting...",
+    "expectedDuration": "Estimated time: about {seconds}s",
+    "statusLabel": "Status",
+    "statuses": {
+      "queued": "Queued",
+      "preparing": "Preparing",
+      "dubbing": "Dubbing",
+      "dubbed": "Ready",
+      "failed": "Failed"
+    },
+    "resultHeading": "Dubbed result",
+    "validationFile": "Choose a video or audio file first.",
+    "errorGeneric": "Something went wrong starting that dubbing job. Please try again."
+  },
+  "demoTextToSpeech": {
+    "voiceLabel": "Voice",
+    "loadingVoices": "Loading voices...",
+    "errorLoadingVoices": "Couldn't load the voice library. Check the API key and try again.",
+    "textLabel": "Text to speak",
+    "textPlaceholder": "Type what you'd like the voice to say...",
+    "generateButton": "Generate & play",
+    "connecting": "Connecting...",
+    "generating": "Generating...",
+    "validationEmpty": "Type some text first.",
+    "validationVoice": "Choose a voice first.",
+    "errorGeneric": "Something went wrong generating that speech. Please try again."
+  },
+  "demoConversationalAi": {
+    "agentIdLabel": "Agent ID",
+    "agentIdPlaceholder": "agent_...",
+    "startButton": "Start conversation",
+    "endButton": "End conversation",
+    "connecting": "Connecting...",
+    "statusLabel": "Status",
+    "statuses": {
+      "disconnected": "Disconnected",
+      "connecting": "Connecting",
+      "connected": "Connected",
+      "error": "Error"
+    },
+    "speakingIndicator": "Agent is speaking",
+    "listeningIndicator": "Listening",
+    "muteButton": "Mute microphone",
+    "unmuteButton": "Unmute microphone",
+    "transcriptHeading": "Live transcript",
+    "validationAgentId": "Enter an agent ID first.",
+    "errorGeneric": "Something went wrong starting that conversation. Check the agent ID and API key."
+  },
   "settings": {
-    "triggerLabel": "API Key",
-    "title": "Anthropic API key",
+    "triggerLabel": "Settings",
+    "title": "API keys",
     "apiKeyLabel": "API key",
-    "apiKeyPlaceholder": "sk-ant-...",
-    "apiKeyHelp": "Stored only in this browser tab for your current session, and sent only to our diagnosis endpoint. It is never saved on our servers.",
-    "getKeyLink": "Get an API key from the Anthropic Console",
     "save": "Save",
     "saved": "Saved",
-    "clear": "Clear"
+    "clear": "Clear",
+    "anthropic": {
+      "title": "Anthropic (used for Diagnose)",
+      "placeholder": "sk-ant-...",
+      "help": "Stored only in this browser tab for your current session, and sent only to our diagnosis endpoint. It is never saved on our servers.",
+      "getKeyLink": "Get an API key from the Anthropic Console"
+    },
+    "elevenlabs": {
+      "title": "ElevenLabs (used for Demo)",
+      "placeholder": "Your ElevenLabs API key",
+      "help": "Stored only in this browser tab for your current session, and sent only to our demo endpoints. It is never saved on our servers.",
+      "getKeyLink": "Get an API key from the ElevenLabs dashboard"
+    }
   }
 }

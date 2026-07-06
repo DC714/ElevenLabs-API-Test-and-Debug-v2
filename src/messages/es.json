@@ -3,6 +3,10 @@
     "title": "Diagnóstico de la API de ElevenLabs",
     "tagline": "Diagnostica, analiza y soluciona errores de la API de ElevenLabs"
   },
+  "nav": {
+    "diagnose": "Diagnosticar",
+    "demo": "Demo"
+  },
   "languageSwitcher": {
     "label": "Idioma",
     "pickerTitle": "Elige un idioma"
@@ -42,15 +46,151 @@
     "copiedConfirmation": "Copiado",
     "retryButton": "Iniciar un nuevo diagnóstico"
   },
+  "demo": {
+    "landingTitle": "Demos de la API de ElevenLabs",
+    "landingSubtitle": "Elige una API para demostrarla en vivo a un cliente o prospecto.",
+    "apiKeyRequired": "Añade tu clave de API de ElevenLabs (arriba a la derecha) para ejecutar esta demo.",
+    "apis": {
+      "textToSpeech": {
+        "title": "Texto a voz",
+        "description": "Convierte texto escrito en habla natural con docenas de voces disponibles."
+      },
+      "speechToText": {
+        "title": "Voz a texto",
+        "description": "Transcribe audio grabado o subido en texto preciso."
+      },
+      "voices": {
+        "title": "Voces",
+        "description": "Explora la biblioteca de voces de la cuenta y clona una nueva voz a partir de una muestra."
+      },
+      "conversationalAi": {
+        "title": "IA conversacional",
+        "description": "Ten una conversación de voz en vivo y en tiempo real con un agente de voz."
+      },
+      "dubbing": {
+        "title": "Doblaje",
+        "description": "Traduce y dobla un clip de video o audio a otro idioma."
+      },
+      "soundEffects": {
+        "title": "Efectos de sonido",
+        "description": "Genera un efecto de sonido corto a partir de una descripción de texto."
+      }
+    }
+  },
+  "demoSoundEffects": {
+    "promptLabel": "Describe el sonido",
+    "promptPlaceholder": "p. ej. Pasos sobre grava, una puerta que cruje al abrirse...",
+    "durationLabel": "Duración",
+    "generateButton": "Generar",
+    "generating": "Generando...",
+    "validationEmpty": "Describe el efecto de sonido que quieres generar.",
+    "errorGeneric": "Algo salió mal al generar ese efecto de sonido. Inténtalo de nuevo."
+  },
+  "demoVoices": {
+    "listHeading": "Biblioteca de voces",
+    "loadingVoices": "Cargando voces...",
+    "errorLoadingVoices": "No se pudo cargar la biblioteca de voces. Revisa la clave de API e inténtalo de nuevo.",
+    "noVoices": "No se encontraron voces en esta cuenta.",
+    "cloneHeading": "Clonar una voz",
+    "cloneNameLabel": "Nombre",
+    "cloneNamePlaceholder": "p. ej. Voz de demo para clientes",
+    "recordButton": "Grabar una muestra",
+    "stopButton": "Detener grabación",
+    "recordingLabel": "Grabando...",
+    "recordedLabel": "Muestra grabada",
+    "micDenied": "Se denegó el acceso al micrófono. Permite el acceso al micrófono o sube un archivo.",
+    "uploadLabel": "O sube un archivo de audio",
+    "cloneSubmit": "Clonar voz",
+    "cloning": "Clonando...",
+    "cloneSuccess": "Voz clonada correctamente.",
+    "cloneError": "Algo salió mal al clonar esa voz. Inténtalo de nuevo.",
+    "validationName": "Ponle un nombre a la voz.",
+    "validationSample": "Graba o sube una muestra de voz primero."
+  },
+  "demoSpeechToText": {
+    "heading": "Graba o sube audio",
+    "recordButton": "Grabar",
+    "stopButton": "Detener grabación",
+    "recordingLabel": "Grabando...",
+    "recordedLabel": "Clip grabado",
+    "micDenied": "Se denegó el acceso al micrófono. Permite el acceso al micrófono o sube un archivo.",
+    "uploadLabel": "O sube un archivo de audio",
+    "submitButton": "Transcribir",
+    "transcribing": "Transcribiendo...",
+    "transcriptHeading": "Transcripción",
+    "validationSample": "Graba o sube un clip primero.",
+    "errorGeneric": "Algo salió mal al transcribir ese clip. Inténtalo de nuevo."
+  },
+  "demoDubbing": {
+    "uploadLabel": "Archivo de video o audio",
+    "targetLanguageLabel": "Idioma de destino",
+    "submitButton": "Iniciar doblaje",
+    "starting": "Iniciando...",
+    "expectedDuration": "Tiempo estimado: unos {seconds}s",
+    "statusLabel": "Estado",
+    "statuses": {
+      "queued": "En cola",
+      "preparing": "Preparando",
+      "dubbing": "Doblando",
+      "dubbed": "Listo",
+      "failed": "Fallido"
+    },
+    "resultHeading": "Resultado del doblaje",
+    "validationFile": "Elige primero un archivo de video o audio.",
+    "errorGeneric": "Algo salió mal al iniciar ese trabajo de doblaje. Inténtalo de nuevo."
+  },
+  "demoTextToSpeech": {
+    "voiceLabel": "Voz",
+    "loadingVoices": "Cargando voces...",
+    "errorLoadingVoices": "No se pudo cargar la biblioteca de voces. Revisa la clave de API e inténtalo de nuevo.",
+    "textLabel": "Texto para narrar",
+    "textPlaceholder": "Escribe lo que quieres que diga la voz...",
+    "generateButton": "Generar y reproducir",
+    "connecting": "Conectando...",
+    "generating": "Generando...",
+    "validationEmpty": "Escribe algún texto primero.",
+    "validationVoice": "Elige una voz primero.",
+    "errorGeneric": "Algo salió mal al generar ese audio. Inténtalo de nuevo."
+  },
+  "demoConversationalAi": {
+    "agentIdLabel": "ID del agente",
+    "agentIdPlaceholder": "agent_...",
+    "startButton": "Iniciar conversación",
+    "endButton": "Terminar conversación",
+    "connecting": "Conectando...",
+    "statusLabel": "Estado",
+    "statuses": {
+      "disconnected": "Desconectado",
+      "connecting": "Conectando",
+      "connected": "Conectado",
+      "error": "Error"
+    },
+    "speakingIndicator": "El agente está hablando",
+    "listeningIndicator": "Escuchando",
+    "muteButton": "Silenciar micrófono",
+    "unmuteButton": "Activar micrófono",
+    "transcriptHeading": "Transcripción en vivo",
+    "validationAgentId": "Introduce un ID de agente primero.",
+    "errorGeneric": "Algo salió mal al iniciar esa conversación. Revisa el ID del agente y la clave de API."
+  },
   "settings": {
-    "triggerLabel": "Clave de API",
-    "title": "Clave de API de Anthropic",
+    "triggerLabel": "Ajustes",
+    "title": "Claves de API",
     "apiKeyLabel": "Clave de API",
-    "apiKeyPlaceholder": "sk-ant-...",
-    "apiKeyHelp": "Se almacena solo en esta pestaña del navegador durante tu sesión actual y se envía únicamente a nuestro endpoint de diagnóstico. Nunca se guarda en nuestros servidores.",
-    "getKeyLink": "Obtén una clave de API en la consola de Anthropic",
     "save": "Guardar",
     "saved": "Guardado",
-    "clear": "Borrar"
+    "clear": "Borrar",
+    "anthropic": {
+      "title": "Anthropic (usada para Diagnosticar)",
+      "placeholder": "sk-ant-...",
+      "help": "Se almacena solo en esta pestaña del navegador durante tu sesión actual y se envía únicamente a nuestro endpoint de diagnóstico. Nunca se guarda en nuestros servidores.",
+      "getKeyLink": "Obtén una clave de API en la consola de Anthropic"
+    },
+    "elevenlabs": {
+      "title": "ElevenLabs (usada para Demo)",
+      "placeholder": "Tu clave de API de ElevenLabs",
+      "help": "Se almacena solo en esta pestaña del navegador durante tu sesión actual y se envía únicamente a nuestros endpoints de demostración. Nunca se guarda en nuestros servidores.",
+      "getKeyLink": "Obtén una clave de API en el panel de ElevenLabs"
+    }
   }
 }

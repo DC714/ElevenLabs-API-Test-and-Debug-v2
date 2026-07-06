@@ -1,0 +1,16 @@
+export const DUBBING_LANGUAGES = [
+  { code: "en", label: "English" },
+  { code: "es", label: "Spanish" },
+  { code: "fr", label: "French" },
+  { code: "de", label: "German" },
+  { code: "it", label: "Italian" },
+  { code: "pt", label: "Portuguese" },
+  { code: "pl", label: "Polish" },
+  { code: "nl", label: "Dutch" },
+  { code: "el", label: "Greek" },
+  { code: "ja", label: "Japanese" },
+  { code: "zh", label: "Chinese" },
+  { code: "ko", label: "Korean" },
+  { code: "hi", label: "Hindi" },
+  { code: "ar", label: "Arabic" },
+] as const;

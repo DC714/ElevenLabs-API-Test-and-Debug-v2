@@ -3,6 +3,10 @@
     "title": "ElevenLabs API-diagnostiek",
     "tagline": "Diagnosticeer, analyseer en verhelp fouten in de ElevenLabs API"
   },
+  "nav": {
+    "diagnose": "Diagnose",
+    "demo": "Demo"
+  },
   "languageSwitcher": {
     "label": "Taal",
     "pickerTitle": "Kies een taal"
@@ -42,15 +46,151 @@
     "copiedConfirmation": "Gekopieerd",
     "retryButton": "Nieuwe diagnose starten"
   },
+  "demo": {
+    "landingTitle": "ElevenLabs API-demo's",
+    "landingSubtitle": "Kies een API om live te demonstreren aan een klant of prospect.",
+    "apiKeyRequired": "Voeg je ElevenLabs API-sleutel toe (rechtsboven) om deze demo uit te voeren.",
+    "apis": {
+      "textToSpeech": {
+        "title": "Tekst naar spraak",
+        "description": "Zet geschreven tekst om in natuurlijk klinkende spraak met tientallen stemmen."
+      },
+      "speechToText": {
+        "title": "Spraak naar tekst",
+        "description": "Transcribeer opgenomen of geüploade audio naar nauwkeurige tekst."
+      },
+      "voices": {
+        "title": "Stemmen",
+        "description": "Blader door de stembibliotheek van het account en kloon een nieuwe stem uit een voorbeeld."
+      },
+      "conversationalAi": {
+        "title": "Conversational AI",
+        "description": "Voer een live, realtime gesproken gesprek met een spraakagent."
+      },
+      "dubbing": {
+        "title": "Nasynchronisatie",
+        "description": "Vertaal en synchroniseer een video- of audioclip naar een andere taal."
+      },
+      "soundEffects": {
+        "title": "Geluidseffecten",
+        "description": "Genereer een kort geluidseffect op basis van een tekstbeschrijving."
+      }
+    }
+  },
+  "demoSoundEffects": {
+    "promptLabel": "Beschrijf het geluid",
+    "promptPlaceholder": "bijv. Voetstappen op grind, een piepende deur die opengaat...",
+    "durationLabel": "Duur",
+    "generateButton": "Genereren",
+    "generating": "Bezig met genereren...",
+    "validationEmpty": "Beschrijf het geluidseffect dat je wilt genereren.",
+    "errorGeneric": "Er is iets misgegaan bij het genereren van dat geluidseffect. Probeer het opnieuw."
+  },
+  "demoVoices": {
+    "listHeading": "Stembibliotheek",
+    "loadingVoices": "Stemmen laden...",
+    "errorLoadingVoices": "Kon de stembibliotheek niet laden. Controleer de API-sleutel en probeer het opnieuw.",
+    "noVoices": "Geen stemmen gevonden in dit account.",
+    "cloneHeading": "Kloon een stem",
+    "cloneNameLabel": "Naam",
+    "cloneNamePlaceholder": "bijv. Demostem voor klant",
+    "recordButton": "Neem een voorbeeld op",
+    "stopButton": "Opname stoppen",
+    "recordingLabel": "Bezig met opnemen...",
+    "recordedLabel": "Voorbeeld opgenomen",
+    "micDenied": "Toegang tot de microfoon is geweigerd. Sta microfoontoegang toe, of upload een bestand.",
+    "uploadLabel": "Of upload een audiobestand",
+    "cloneSubmit": "Stem klonen",
+    "cloning": "Bezig met klonen...",
+    "cloneSuccess": "Stem succesvol gekloond.",
+    "cloneError": "Er is iets misgegaan bij het klonen van die stem. Probeer het opnieuw.",
+    "validationName": "Geef de stem een naam.",
+    "validationSample": "Neem eerst een stemvoorbeeld op of upload er een."
+  },
+  "demoSpeechToText": {
+    "heading": "Neem audio op of upload deze",
+    "recordButton": "Opnemen",
+    "stopButton": "Opname stoppen",
+    "recordingLabel": "Bezig met opnemen...",
+    "recordedLabel": "Clip opgenomen",
+    "micDenied": "Toegang tot de microfoon is geweigerd. Sta microfoontoegang toe, of upload een bestand.",
+    "uploadLabel": "Of upload een audiobestand",
+    "submitButton": "Transcriberen",
+    "transcribing": "Bezig met transcriberen...",
+    "transcriptHeading": "Transcriptie",
+    "validationSample": "Neem eerst een clip op of upload er een.",
+    "errorGeneric": "Er is iets misgegaan bij het transcriberen van die clip. Probeer het opnieuw."
+  },
+  "demoDubbing": {
+    "uploadLabel": "Video- of audiobestand",
+    "targetLanguageLabel": "Doeltaal",
+    "submitButton": "Nasynchronisatie starten",
+    "starting": "Bezig met starten...",
+    "expectedDuration": "Geschatte tijd: ongeveer {seconds}s",
+    "statusLabel": "Status",
+    "statuses": {
+      "queued": "In wachtrij",
+      "preparing": "Bezig met voorbereiden",
+      "dubbing": "Bezig met nasynchroniseren",
+      "dubbed": "Klaar",
+      "failed": "Mislukt"
+    },
+    "resultHeading": "Nasynchronisatieresultaat",
+    "validationFile": "Kies eerst een video- of audiobestand.",
+    "errorGeneric": "Er is iets misgegaan bij het starten van die nasynchronisatietaak. Probeer het opnieuw."
+  },
+  "demoTextToSpeech": {
+    "voiceLabel": "Stem",
+    "loadingVoices": "Stemmen laden...",
+    "errorLoadingVoices": "Kon de stembibliotheek niet laden. Controleer de API-sleutel en probeer het opnieuw.",
+    "textLabel": "Uit te spreken tekst",
+    "textPlaceholder": "Typ wat de stem moet zeggen...",
+    "generateButton": "Genereren en afspelen",
+    "connecting": "Verbinden...",
+    "generating": "Bezig met genereren...",
+    "validationEmpty": "Typ eerst wat tekst.",
+    "validationVoice": "Kies eerst een stem.",
+    "errorGeneric": "Er is iets misgegaan bij het genereren van die spraak. Probeer het opnieuw."
+  },
+  "demoConversationalAi": {
+    "agentIdLabel": "Agent-ID",
+    "agentIdPlaceholder": "agent_...",
+    "startButton": "Gesprek starten",
+    "endButton": "Gesprek beëindigen",
+    "connecting": "Verbinden...",
+    "statusLabel": "Status",
+    "statuses": {
+      "disconnected": "Niet verbonden",
+      "connecting": "Verbinden",
+      "connected": "Verbonden",
+      "error": "Fout"
+    },
+    "speakingIndicator": "Agent spreekt",
+    "listeningIndicator": "Aan het luisteren",
+    "muteButton": "Microfoon dempen",
+    "unmuteButton": "Microfoon dempen opheffen",
+    "transcriptHeading": "Live transcriptie",
+    "validationAgentId": "Voer eerst een agent-ID in.",
+    "errorGeneric": "Er is iets misgegaan bij het starten van dat gesprek. Controleer het agent-ID en de API-sleutel."
+  },
   "settings": {
-    "triggerLabel": "API-sleutel",
-    "title": "Anthropic API-sleutel",
+    "triggerLabel": "Instellingen",
+    "title": "API-sleutels",
     "apiKeyLabel": "API-sleutel",
-    "apiKeyPlaceholder": "sk-ant-...",
-    "apiKeyHelp": "Wordt alleen opgeslagen in dit browsertabblad voor je huidige sessie en alleen verzonden naar ons diagnose-eindpunt. Wordt nooit op onze servers opgeslagen.",
-    "getKeyLink": "Haal een API-sleutel op via de Anthropic Console",
     "save": "Opslaan",
     "saved": "Opgeslagen",
-    "clear": "Wissen"
+    "clear": "Wissen",
+    "anthropic": {
+      "title": "Anthropic (gebruikt voor Diagnose)",
+      "placeholder": "sk-ant-...",
+      "help": "Wordt alleen opgeslagen in dit browsertabblad voor je huidige sessie en alleen verzonden naar ons diagnose-eindpunt. Wordt nooit op onze servers opgeslagen.",
+      "getKeyLink": "Haal een API-sleutel op via de Anthropic Console"
+    },
+    "elevenlabs": {
+      "title": "ElevenLabs (gebruikt voor Demo)",
+      "placeholder": "Je ElevenLabs API-sleutel",
+      "help": "Wordt alleen opgeslagen in dit browsertabblad voor je huidige sessie en alleen verzonden naar onze demo-eindpunten. Wordt nooit op onze servers opgeslagen.",
+      "getKeyLink": "Haal een API-sleutel op via het ElevenLabs-dashboard"
+    }
   }
 }
