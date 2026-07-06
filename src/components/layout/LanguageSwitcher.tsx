@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, type AppLocale } from "@/i18n/routing";
+import { usePreferences } from "@/components/PreferencesProvider";
 
 const NATIVE_NAMES: Record<AppLocale, string> = {
   "en-US": "English (US)",
@@ -20,11 +21,17 @@ export function LanguageSwitcher() {
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
+  const { refresh } = usePreferences();
   const [open, setOpen] = useState(false);
 
   function selectLocale(next: AppLocale) {
     setOpen(false);
     router.replace(pathname, { locale: next });
+    void fetch("/api/user/preferences", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ locale: next }),
+    }).then(() => refresh());
   }
 
   return (

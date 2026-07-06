@@ -2,8 +2,8 @@ import { ELEVENLABS_API_BASE, getApiKeyOrError, relayJson } from "@/lib/elevenla
 
 export const runtime = "nodejs";
 
-export async function GET(request: Request, { params }: { params: Promise<{ dubbingId: string }> }) {
-  const result = getApiKeyOrError(request);
+export async function GET(_request: Request, { params }: { params: Promise<{ dubbingId: string }> }) {
+  const result = await getApiKeyOrError();
   if ("error" in result) return result.error;
 
   const { dubbingId } = await params;

@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { elevenLabsKeySession } from "@/lib/api-key-session";
-import { elevenLabsHeaders } from "@/lib/elevenlabs/client-fetch";
+import { usePreferences } from "@/components/PreferencesProvider";
 import { base64ChunksToBlob, generateTtsStream } from "@/lib/elevenlabs/tts-socket";
 import type { ElevenLabsVoice } from "@/lib/elevenlabs/types";
 
@@ -15,7 +14,7 @@ type VoicesState =
 export function TtsDemo() {
   const t = useTranslations("demoTextToSpeech");
   const tDemo = useTranslations("demo");
-  const hasApiKey = elevenLabsKeySession.useHasValue();
+  const { hasElevenLabsKey: hasApiKey } = usePreferences();
 
   const [voicesState, setVoicesState] = useState<VoicesState>({ status: "idle" });
   const [voiceId, setVoiceId] = useState("");
@@ -34,7 +33,7 @@ export function TtsDemo() {
 
     async function loadVoices() {
       try {
-        const response = await fetch("/api/elevenlabs/voices", { headers: elevenLabsHeaders() });
+        const response = await fetch("/api/elevenlabs/voices");
         if (!response.ok) throw new Error("failed");
         const data = (await response.json()) as { voices: ElevenLabsVoice[] };
         setVoicesState({ status: "loaded", voices: data.voices ?? [] });
@@ -52,7 +51,7 @@ export function TtsDemo() {
     };
   }, []);
 
-  function handleGenerate() {
+  async function handleGenerate() {
     setError(null);
 
     if (!hasApiKey) {
@@ -68,15 +67,18 @@ export function TtsDemo() {
       return;
     }
 
-    const apiKey = elevenLabsKeySession.read();
-    if (!apiKey) {
+    setStatus("connecting");
+
+    const revealResponse = await fetch("/api/user/elevenlabs-key/reveal");
+    if (!revealResponse.ok) {
       setError(tDemo("apiKeyRequired"));
+      setStatus("idle");
       return;
     }
+    const { apiKey } = (await revealResponse.json()) as { apiKey: string };
 
     cancelRef.current?.();
     chunksRef.current = [];
-    setStatus("connecting");
 
     cancelRef.current = generateTtsStream({
       voiceId,
@@ -150,7 +152,7 @@ export function TtsDemo() {
 
       <button
         type="button"
-        onClick={handleGenerate}
+        onClick={() => void handleGenerate()}
         disabled={busy}
         className="min-h-11 w-fit rounded-xl bg-[var(--neutral-950)] px-4 py-2 text-[15px] font-semibold text-[var(--eggshell)] transition-opacity hover:opacity-90 disabled:opacity-50"
       >

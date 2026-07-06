@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import type { SessionValue } from "@/lib/session-value";
 
 export function ApiKeyField({
-  session,
+  provider,
+  hasKey,
+  onSaved,
   inputId,
   title,
   helpText,
@@ -16,7 +17,9 @@ export function ApiKeyField({
   savedLabel,
   clearLabel,
 }: {
-  session: SessionValue;
+  provider: "anthropicApiKey" | "elevenlabsApiKey";
+  hasKey: boolean;
+  onSaved: () => void;
   inputId: string;
   title: string;
   helpText: string;
@@ -28,19 +31,34 @@ export function ApiKeyField({
   savedLabel: string;
   clearLabel: string;
 }) {
-  const hasKey = session.useHasValue();
-  const [inputValue, setInputValue] = useState(() => session.read() ?? "");
+  const [inputValue, setInputValue] = useState("");
   const [saved, setSaved] = useState(false);
+  const [busy, setBusy] = useState(false);
 
-  function handleSave() {
+  async function patchKey(value: string | null) {
+    setBusy(true);
+    try {
+      await fetch("/api/user/preferences", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ [provider]: value }),
+      });
+      onSaved();
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleSave() {
     if (!inputValue.trim()) return;
-    session.store(inputValue.trim());
+    await patchKey(inputValue.trim());
+    setInputValue("");
     setSaved(true);
     setTimeout(() => setSaved(false), 2000);
   }
 
-  function handleClear() {
-    session.clear();
+  async function handleClear() {
+    await patchKey(null);
     setInputValue("");
   }
 
@@ -82,7 +100,8 @@ export function ApiKeyField({
         <button
           type="button"
           onClick={handleSave}
-          className="min-h-10 flex-1 rounded-xl bg-[var(--neutral-950)] px-4 text-sm font-semibold text-[var(--eggshell)] transition-opacity hover:opacity-90"
+          disabled={busy}
+          className="min-h-10 flex-1 rounded-xl bg-[var(--neutral-950)] px-4 text-sm font-semibold text-[var(--eggshell)] transition-opacity hover:opacity-90 disabled:opacity-50"
         >
           {saved ? savedLabel : saveLabel}
         </button>
@@ -90,7 +109,8 @@ export function ApiKeyField({
           <button
             type="button"
             onClick={handleClear}
-            className="min-h-10 rounded-xl border border-[var(--neutral-200)] px-4 text-sm font-semibold text-[var(--neutral-900)] hover:bg-[var(--neutral-50)]"
+            disabled={busy}
+            className="min-h-10 rounded-xl border border-[var(--neutral-200)] px-4 text-sm font-semibold text-[var(--neutral-900)] hover:bg-[var(--neutral-50)] disabled:opacity-50"
           >
             {clearLabel}
           </button>

@@ -4,7 +4,7 @@ import { ELEVENLABS_API_BASE, getApiKeyOrError, relayJson } from "@/lib/elevenla
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
-  const result = getApiKeyOrError(request);
+  const result = await getApiKeyOrError();
   if ("error" in result) return result.error;
 
   const { searchParams } = new URL(request.url);

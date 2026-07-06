@@ -3,7 +3,7 @@ import { ELEVENLABS_API_BASE, getApiKeyOrError, relayBinary } from "@/lib/eleven
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
-  const result = getApiKeyOrError(request);
+  const result = await getApiKeyOrError();
   if ("error" in result) return result.error;
 
   const body = await request.json();

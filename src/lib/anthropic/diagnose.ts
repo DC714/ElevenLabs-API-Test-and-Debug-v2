@@ -23,7 +23,7 @@ function parseDataUrl(dataUrl: string): { mediaType: string; data: string } {
   return { mediaType, data };
 }
 
-export function runDiagnosis(request: DiagnoseRequest) {
+export function runDiagnosis(request: DiagnoseRequest, apiKey: string) {
   const content: Array<ImageBlockParam | TextBlockParam> = [];
 
   for (const image of request.images ?? []) {
@@ -42,7 +42,7 @@ export function runDiagnosis(request: DiagnoseRequest) {
     content.push({ type: "text", text: request.textInput });
   }
 
-  const client = getAnthropicClient(request.apiKey);
+  const client = getAnthropicClient(apiKey);
 
   return client.messages.stream({
     model: "claude-opus-4-8",

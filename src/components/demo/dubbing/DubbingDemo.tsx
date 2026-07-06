@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { elevenLabsKeySession } from "@/lib/api-key-session";
-import { elevenLabsHeaders } from "@/lib/elevenlabs/client-fetch";
+import { usePreferences } from "@/components/PreferencesProvider";
 import type { DubbingProject } from "@/lib/elevenlabs/types";
 import { DUBBING_LANGUAGES } from "@/lib/dubbing-languages";
 
@@ -13,7 +12,7 @@ const TERMINAL_STATUSES = new Set(["dubbed", "failed"]);
 export function DubbingDemo() {
   const t = useTranslations("demoDubbing");
   const tDemo = useTranslations("demo");
-  const hasApiKey = elevenLabsKeySession.useHasValue();
+  const { hasElevenLabsKey: hasApiKey } = usePreferences();
 
   const [file, setFile] = useState<File | null>(null);
   const [targetLang, setTargetLang] = useState<string>(DUBBING_LANGUAGES[1].code);
@@ -40,7 +39,7 @@ export function DubbingDemo() {
   }
 
   async function pollStatus(dubbingId: string) {
-    const response = await fetch(`/api/elevenlabs/dubbing/${dubbingId}`, { headers: elevenLabsHeaders() });
+    const response = await fetch(`/api/elevenlabs/dubbing/${dubbingId}`);
     if (!response.ok) return;
     const data = (await response.json()) as DubbingProject;
     setProject(data);
@@ -54,9 +53,7 @@ export function DubbingDemo() {
   }
 
   async function fetchResultAudio(dubbingId: string) {
-    const response = await fetch(`/api/elevenlabs/dubbing/${dubbingId}/audio/${targetLang}`, {
-      headers: elevenLabsHeaders(),
-    });
+    const response = await fetch(`/api/elevenlabs/dubbing/${dubbingId}/audio/${targetLang}`);
     if (!response.ok) return;
     const blob = await response.blob();
     if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
@@ -88,7 +85,6 @@ export function DubbingDemo() {
 
       const response = await fetch("/api/elevenlabs/dubbing", {
         method: "POST",
-        headers: elevenLabsHeaders(),
         body: formData,
       });
 

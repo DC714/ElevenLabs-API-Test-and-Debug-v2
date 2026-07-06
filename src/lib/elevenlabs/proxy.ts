@@ -1,13 +1,26 @@
 import { NextResponse } from "next/server";
+import { getCurrentSession } from "@/lib/session";
+import { getUserApiKey } from "@/lib/user-keys";
 
 export const ELEVENLABS_API_BASE = "https://api.elevenlabs.io";
 
-/** Extracts the FDE's ElevenLabs key from the request header, or a ready-to-return 401 if missing. */
-export function getApiKeyOrError(request: Request): { apiKey: string } | { error: NextResponse } {
-  const apiKey = request.headers.get("x-elevenlabs-key");
-  if (!apiKey) {
-    return { error: NextResponse.json({ error: "Missing x-elevenlabs-key header" }, { status: 401 }) };
+/** Resolves the logged-in user's saved ElevenLabs key, or a ready-to-return error response if unavailable. */
+export async function getApiKeyOrError(): Promise<{ apiKey: string } | { error: NextResponse }> {
+  const session = await getCurrentSession();
+  if (!session) {
+    return { error: NextResponse.json({ error: "Not authenticated" }, { status: 401 }) };
   }
+
+  const apiKey = await getUserApiKey(session.user.id, "elevenlabs");
+  if (!apiKey) {
+    return {
+      error: NextResponse.json(
+        { error: "No ElevenLabs API key saved. Add one in Settings." },
+        { status: 400 },
+      ),
+    };
+  }
+
   return { apiKey };
 }
 
