@@ -25,7 +25,11 @@
     "haveAccount": "Masz już konto?",
     "registerLink": "Zarejestruj się",
     "loginLink": "Zaloguj się",
-    "errorGeneric": "Coś poszło nie tak. Sprawdź swoje dane i spróbuj ponownie."
+    "errorGeneric": "Coś poszło nie tak. Sprawdź swoje dane i spróbuj ponownie.",
+    "introTitle": "Diagnozuj i prezentuj API ElevenLabs",
+    "introBody": "Stworzone dla inżynierów wdrożeniowych ElevenLabs — diagnozuj błędy API na podstawie logów i zrzutów ekranu oraz prowadź żywe prezentacje wszystkich API ElevenLabs dla klientów i potencjalnych klientów.",
+    "keysExplanation": "Po zalogowaniu dodaj własne klucze API Anthropic i ElevenLabs w Ustawieniach. Klucz Anthropic zasila silnik diagnostyczny, a klucz ElevenLabs pozwala prowadzić żywe prezentacje na Twoim koncie.",
+    "keysSecurity": "Klucze są szyfrowane i odszyfrowywane wyłącznie na naszym serwerze, aby wykonać żądanie w Twoim imieniu — nigdy nie są przechowywane jawnie ani wysyłane z powrotem do przeglądarki."
   },
   "languageSwitcher": {
     "label": "Język",
@@ -203,13 +207,13 @@
     "anthropic": {
       "title": "Anthropic (używany do Diagnozy)",
       "placeholder": "sk-ant-...",
-      "help": "Przechowywany wyłącznie w tej karcie przeglądarki na czas bieżącej sesji i wysyłany tylko do naszego punktu diagnostycznego. Nigdy nie jest zapisywany na naszych serwerach.",
+      "help": "Szyfrowany i zapisywany wraz z Twoim kontem, odszyfrowywany wyłącznie na naszym serwerze do obsługi diagnoz. Nigdy nie jest wysyłany z powrotem do przeglądarki ani przechowywany jawnie.",
       "getKeyLink": "Uzyskaj klucz API w Anthropic Console"
     },
     "elevenlabs": {
       "title": "ElevenLabs (używany do Demo)",
       "placeholder": "Twój klucz API ElevenLabs",
-      "help": "Przechowywany wyłącznie w tej karcie przeglądarki na czas bieżącej sesji i wysyłany tylko do naszych punktów demonstracyjnych. Nigdy nie jest zapisywany na naszych serwerach.",
+      "help": "Szyfrowany i zapisywany wraz z Twoim kontem, odszyfrowywany wyłącznie na naszym serwerze do obsługi prezentacji. Nigdy nie jest wysyłany z powrotem do przeglądarki ani przechowywany jawnie.",
       "getKeyLink": "Uzyskaj klucz API w panelu ElevenLabs"
     }
   }

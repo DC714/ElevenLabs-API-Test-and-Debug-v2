@@ -25,7 +25,11 @@
     "haveAccount": "Heb je al een account?",
     "registerLink": "Registreren",
     "loginLink": "Inloggen",
-    "errorGeneric": "Er is iets misgegaan. Controleer je gegevens en probeer het opnieuw."
+    "errorGeneric": "Er is iets misgegaan. Controleer je gegevens en probeer het opnieuw.",
+    "introTitle": "Diagnosticeer en demonstreer de ElevenLabs API",
+    "introBody": "Gemaakt voor ElevenLabs forward-deployed engineers: diagnosticeer API-fouten aan de hand van logs en screenshots, en geef live demo's van alle ElevenLabs API's aan klanten en prospects.",
+    "keysExplanation": "Voeg na het inloggen je eigen Anthropic- en ElevenLabs API-sleutels toe via Instellingen. Je Anthropic-sleutel voedt de diagnose-engine; je ElevenLabs-sleutel laat je live demo's uitvoeren op je eigen account.",
+    "keysSecurity": "Sleutels worden versleuteld opgeslagen en alleen op onze server ontsleuteld om elk verzoek namens jou uit te voeren — ze worden nooit in platte tekst opgeslagen of teruggestuurd naar je browser."
   },
   "languageSwitcher": {
     "label": "Taal",
@@ -203,13 +207,13 @@
     "anthropic": {
       "title": "Anthropic (gebruikt voor Diagnose)",
       "placeholder": "sk-ant-...",
-      "help": "Wordt alleen opgeslagen in dit browsertabblad voor je huidige sessie en alleen verzonden naar ons diagnose-eindpunt. Wordt nooit op onze servers opgeslagen.",
+      "help": "Versleuteld en opgeslagen bij je account, alleen op onze server ontsleuteld om je diagnoses te verwerken. Wordt nooit teruggestuurd naar je browser of in platte tekst opgeslagen.",
       "getKeyLink": "Haal een API-sleutel op via de Anthropic Console"
     },
     "elevenlabs": {
       "title": "ElevenLabs (gebruikt voor Demo)",
       "placeholder": "Je ElevenLabs API-sleutel",
-      "help": "Wordt alleen opgeslagen in dit browsertabblad voor je huidige sessie en alleen verzonden naar onze demo-eindpunten. Wordt nooit op onze servers opgeslagen.",
+      "help": "Versleuteld en opgeslagen bij je account, alleen op onze server ontsleuteld om je demo's te verwerken. Wordt nooit teruggestuurd naar je browser of in platte tekst opgeslagen.",
       "getKeyLink": "Haal een API-sleutel op via het ElevenLabs-dashboard"
     }
   }
