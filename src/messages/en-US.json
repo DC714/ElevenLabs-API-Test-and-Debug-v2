@@ -25,7 +25,11 @@
     "haveAccount": "Already have an account?",
     "registerLink": "Sign up",
     "loginLink": "Sign in",
-    "errorGeneric": "Something went wrong. Please check your details and try again."
+    "errorGeneric": "Something went wrong. Please check your details and try again.",
+    "introTitle": "Diagnose and demo the ElevenLabs API",
+    "introBody": "Built for ElevenLabs forward-deployed engineers: diagnose API errors from logs and screenshots, and run live demos of every ElevenLabs API for clients and prospects.",
+    "keysExplanation": "Once you're signed in, add your own Anthropic and ElevenLabs API keys from Settings. Your Anthropic key powers the diagnosis engine; your ElevenLabs key lets you run live demos against your own account.",
+    "keysSecurity": "Keys are encrypted and decrypted only on our server to make each request on your behalf — they're never stored in plain text or sent back to your browser."
   },
   "languageSwitcher": {
     "label": "Language",
@@ -203,13 +207,13 @@
     "anthropic": {
       "title": "Anthropic (used for Diagnose)",
       "placeholder": "sk-ant-...",
-      "help": "Stored only in this browser tab for your current session, and sent only to our diagnosis endpoint. It is never saved on our servers.",
+      "help": "Encrypted and stored with your account, decrypted only on our server to process your diagnoses. It is never sent back to your browser or stored in plain text.",
       "getKeyLink": "Get an API key from the Anthropic Console"
     },
     "elevenlabs": {
       "title": "ElevenLabs (used for Demo)",
       "placeholder": "Your ElevenLabs API key",
-      "help": "Stored only in this browser tab for your current session, and sent only to our demo endpoints. It is never saved on our servers.",
+      "help": "Encrypted and stored with your account, decrypted only on our server to process your demos. It is never sent back to your browser or stored in plain text.",
       "getKeyLink": "Get an API key from the ElevenLabs dashboard"
     }
   }

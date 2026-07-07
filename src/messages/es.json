@@ -25,7 +25,11 @@
     "haveAccount": "¿Ya tienes una cuenta?",
     "registerLink": "Regístrate",
     "loginLink": "Iniciar sesión",
-    "errorGeneric": "Algo salió mal. Revisa tus datos e inténtalo de nuevo."
+    "errorGeneric": "Algo salió mal. Revisa tus datos e inténtalo de nuevo.",
+    "introTitle": "Diagnostica y demuestra la API de ElevenLabs",
+    "introBody": "Creado para ingenieros de implementación de ElevenLabs: diagnostica errores de la API a partir de registros y capturas de pantalla, y realiza demostraciones en vivo de todas las API de ElevenLabs para clientes y prospectos.",
+    "keysExplanation": "Una vez que hayas iniciado sesión, añade tus propias claves de API de Anthropic y ElevenLabs desde Configuración. Tu clave de Anthropic impulsa el motor de diagnóstico; tu clave de ElevenLabs te permite ejecutar demostraciones en vivo con tu propia cuenta.",
+    "keysSecurity": "Las claves se cifran y solo se descifran en nuestro servidor para realizar cada solicitud en tu nombre; nunca se almacenan en texto plano ni se envían de vuelta a tu navegador."
   },
   "languageSwitcher": {
     "label": "Idioma",
@@ -203,13 +207,13 @@
     "anthropic": {
       "title": "Anthropic (usada para Diagnosticar)",
       "placeholder": "sk-ant-...",
-      "help": "Se almacena solo en esta pestaña del navegador durante tu sesión actual y se envía únicamente a nuestro endpoint de diagnóstico. Nunca se guarda en nuestros servidores.",
+      "help": "Cifrada y almacenada junto con tu cuenta, descifrada solo en nuestro servidor para procesar tus diagnósticos. Nunca se envía de vuelta a tu navegador ni se almacena en texto plano.",
       "getKeyLink": "Obtén una clave de API en la consola de Anthropic"
     },
     "elevenlabs": {
       "title": "ElevenLabs (usada para Demo)",
       "placeholder": "Tu clave de API de ElevenLabs",
-      "help": "Se almacena solo en esta pestaña del navegador durante tu sesión actual y se envía únicamente a nuestros endpoints de demostración. Nunca se guarda en nuestros servidores.",
+      "help": "Cifrada y almacenada junto con tu cuenta, descifrada solo en nuestro servidor para procesar tus demostraciones. Nunca se envía de vuelta a tu navegador ni se almacena en texto plano.",
       "getKeyLink": "Obtén una clave de API en el panel de ElevenLabs"
     }
   }
